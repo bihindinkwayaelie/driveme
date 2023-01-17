@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!--Hero-->
+    <!-- component -->
+
+<div class="bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="sm:items-center sm:pt-16">
+      <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+        <div class="max-w-md mx-auto">
+          <div class="flex items-center space-x-5">
+            <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
+              <h2 class="leading-relaxed">Request a Driver</h2>
+              <p class="text-sm text-gray-500 font-normal leading-relaxed">Get home safe with DriveMe</p>
+            </div>
+          </div>
+          <div class="divide-y divide-gray-200">
+            <form action="{% url 'requestdriver' %}" method="POST" accept="">
+              {% csrf_token %}
+            <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+              <div class="flex flex-col">
+                <label class="leading-loose">Fullname</label>
+                <input type="text" name="fullname" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+              </div>
+              <div class="flex flex-col">
+                <label class="leading-loose">Email</label>
+                <input type="text" name="email" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+              </div>
+              <div class="flex flex-col">
+                <label class="leading-loose">Phonenumber</label>
+                <input type="number" name="phonenumber" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+              </div>
+              <div class="flex flex-col">
+                <label class="leading-loose">Residence</label>
+                <input type="text" name="address" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+              </div>
+              <div class="flex flex-col">
+                <label class="leading-loose">currentlocation</label>
+                <input type="text" name="currentlocation" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="flex flex-col">
+                  <label class="leading-loose">Start</label>
+                  <div class="relative focus-within:text-gray-600 text-gray-400">
+                    <input type="datetime-local" name="starttime" class="pr-2 pl-2 py-2 border focus:ring-gray-500 focus:border-gray-900  sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <label class="leading-loose">End</label>
+                  <div class="relative focus-within:text-gray-600 text-gray-400">
+                    <input type="datetime-local" name="endtime" class="pr-4 pl-1 py-2 border focus:ring-gray-500 focus:border-gray-900  sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center space-x-4">
+                <input type="reset" value="reset" class="flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none">
+                <input type="submit" value="Send" class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none">
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
